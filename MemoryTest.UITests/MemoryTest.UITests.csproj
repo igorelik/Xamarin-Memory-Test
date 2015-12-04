@@ -46,8 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MemoryTest\MemoryTest.iOS\MemoryTest.iOS.csproj">
-      <Project>{AC6DBD95-C6B9-466D-924D-5D35D056A82F}</Project>
-      <Name>MemoryTest</Name>
+      <Project>{0DDC0C37-B8F7-46CF-9B2E-DC50AB3F5BA7}</Project>
+      <Name>MemoryTest.iOS</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

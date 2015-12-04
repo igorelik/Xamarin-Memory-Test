@@ -21,7 +21,7 @@ namespace MemoryTest.ViewModel
         {
             _appNavigationService = appNavigationService;
             _appStateService = appStateService;
-            GoForwardCommand = new RelayCommand(async () => await _appNavigationService.NavigateToAsync(ViewModelLocator.Page2PageKey));
+            GoForwardCommand = new RelayCommand(async () => await _appNavigationService.NavigateToAsync(ViewModelLocator.Page2TPageKey));
         }
 
         public void OnAppearing()

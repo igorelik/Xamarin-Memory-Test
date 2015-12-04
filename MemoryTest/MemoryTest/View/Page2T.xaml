@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<me:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:me="clr-namespace:MemoryTest"
+             xmlns:controls="clr-namespace:MemoryTest.View.Controls;assembly=MemoryTest"
+             xmlns:controls1="clr-namespace:MemoryTest.Controls;assembly=MemoryTest"
+ 			 xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"            x:Class="MemoryTest.View.Page2T">
+ <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+  </ContentPage.Padding>
+    <Grid Padding="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="{Binding SelectedModel.Field1, StringFormat='Page two - {0}' }" Grid.ColumnSpan="2" FontSize="20" HorizontalOptions="CenterAndExpand" />
+
+<!--        <controls:GCInfoView Grid.Row="1"  Grid.ColumnSpan="2" Grid.Column="0" />-->
+
+<!-- 		<controls1:GridView Grid.Row="2"  Grid.ColumnSpan="2" Grid.Column="0" 
+              x:Name="MediaItemsGridView"
+              RowSpacing="20"
+              ColumnSpacing="0"
+              ContentPaddingBottom="20"
+              ContentPaddingTop="0"
+              ContentPaddingLeft="0"
+              ContentPaddingRight="0"
+              ItemHeight="260"
+              ItemWidth="230"
+              HeightRequest="600"
+              ItemsSource="{Binding Models}"
+              IsScrollEnabled="False"
+              HorizontalOptions="Fill"
+              VerticalOptions="Fill"
+              SelectionEnabled="true" 
+              MaxItemsPerRow="3"              >
+
+              <controls1:GridView.ItemTemplate>
+                <DataTemplate> 
+                  <controls:SingleEntryView />
+                </DataTemplate>
+              </controls1:GridView.ItemTemplate>
+            </controls1:GridView>-->
+               <telerikDataControls:RadListView Grid.Row="2"  Grid.ColumnSpan="2" Grid.Column="0"  
+               									x:Name="listView" 
+               									ItemsSource="{Binding Models}"
+               								SelectionMode="None"
+
+               									BackgroundColor="White">
+  <telerikDataControls:RadListView.LayoutDefinition>
+       <telerikListView:ListViewGridLayout HorizontalItemSpacing="10" VerticalItemSpacing="10" SpanCount="3">
+         <telerikListView:ListViewGridLayout.ItemLength>
+           <OnPlatform x:TypeArguments="x:Double" iOS="230" Android="230" WinPhone="-1" />
+         </telerikListView:ListViewGridLayout.ItemLength>
+       </telerikListView:ListViewGridLayout>
+     </telerikDataControls:RadListView.LayoutDefinition>
+     <telerikDataControls:RadListView.ItemTemplate>
+               	<DataTemplate>
+			        <telerikListView:ListViewTemplateCell>
+			          <telerikListView:ListViewTemplateCell.View>
+			           <Grid Padding="10" HeightRequest="460" BackgroundColor="Aqua">
+						<Grid.RowDefinitions>
+					        <RowDefinition Height="*"></RowDefinition>
+					        <RowDefinition Height="Auto"></RowDefinition>
+						</Grid.RowDefinitions>
+						<Image x:Name="ImageView" Source="{Binding ImageUrl}" Aspect="AspectFill"  />
+						<Label Grid.Row="1" Text="{Binding ImgLabel}" TextColor="Lime" />
+					</Grid>
+			          </telerikListView:ListViewTemplateCell.View>
+			        </telerikListView:ListViewTemplateCell>
+               	</DataTemplate>
+               	</telerikDataControls:RadListView.ItemTemplate>
+               </telerikDataControls:RadListView>
+
+
+        <ContentView Grid.Row="3" Grid.Column="0" Padding="10">
+            <controls:TextButtonView Text="BACKWARD" AccentColor="{x:DynamicResource iCareBlueColor}" ActionCommand="{Binding GoBackwardCommand}"  />
+        </ContentView>
+        <ContentView Grid.Row="3" Grid.Column="1" Padding="10">
+            <controls:TextButtonView Text="FORWARD" AccentColor="{x:DynamicResource iCareBlueColor}" ActionCommand="{Binding GoForwardCommand}"  />
+        </ContentView>
+    </Grid>
+</me:ViewBase>

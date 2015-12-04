@@ -24,7 +24,8 @@ namespace MemoryTest.ViewModel
     public class ViewModelLocator
     {
         public const string Page1PageKey = "Page1";
-        public const string Page2PageKey = "Page2";
+		public const string Page2PageKey = "Page2";
+		public const string Page2TPageKey = "Page2T";
         public const string Page3PageKey = "Page3";
 
         /// <summary>

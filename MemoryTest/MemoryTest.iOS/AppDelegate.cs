@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+[assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.DataControls.RadListView), typeof(Telerik.XamarinForms.DataControlsRenderer.iOS.ListViewRenderer))]
 namespace MemoryTest.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -22,10 +23,12 @@ namespace MemoryTest.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            new Telerik.XamarinForms.DataControlsRenderer.iOS.ListViewRenderer();
             global::Xamarin.Forms.Forms.Init();
 
 			Xamarin.Calabash.Start();
 
+            Telerik.XamarinForms.Common.iOS.TelerikForms.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

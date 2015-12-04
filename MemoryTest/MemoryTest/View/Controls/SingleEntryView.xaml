@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<controls:FastGridCell 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				xmlns:controls="clr-namespace:MemoryTest.Controls;assembly=MemoryTest"
+				x:Class="MemoryTest.View.Controls.SingleEntryView">
+	<Grid>
+		<Grid.RowDefinitions>
+	        <RowDefinition Height="*"></RowDefinition>
+	        <RowDefinition Height="Auto"></RowDefinition>
+		</Grid.RowDefinitions>
+-		<controls:FastImage x:Name="ImageView" Aspect="AspectFill" />-
+<!--		<Image x:Name="ImageView" Aspect="AspectFill" Source="{Binding ImageUrl}" />  -->
+		<Label Grid.Row="1" Text="{Binding ImgLabel}" TextColor="Lime" />
+	</Grid>
+</controls:FastGridCell>

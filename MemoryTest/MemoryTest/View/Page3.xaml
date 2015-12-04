@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<me:ViewBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:me="clr-namespace:MemoryTest"
+             xmlns:controls="clr-namespace:MemoryTest.View.Controls;assembly=MemoryTest"
+             xmlns:viewModel="clr-namespace:MemoryTest.ViewModel;assembly=MemoryTest"
+             xmlns:converters="clr-namespace:MemoryTest.Converters;assembly=MemoryTest"
+             x:Class="MemoryTest.View.Page3">
+ <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+  </ContentPage.Padding>
+      <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:SelectionStatusToColorConverter x:Key="SelectionStatusToColorConverter" />
+            <viewModel:Page3ViewModel x:Key="ViewModel"  />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid Padding="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Text="{Binding SelectedModel.Field1, StringFormat='Page three - {0}' }" FontSize="20" HorizontalOptions="CenterAndExpand" />
+        <controls:GCInfoView Grid.Row="1" />
+        <StackLayout Grid.Row="2">
+            <Label Text="{Binding NumberOfModels, StringFormat='{0} Models'}" FontSize="25" />
+            <ListView ItemsSource="{Binding Model1s}" RowHeight="100" >
+            <!-- Header="{Binding .}"
+                <ListView.HeaderTemplate >
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="{x:DynamicResource iCareBlueColor}"  HorizontalOptions="FillAndExpand" Padding="0">
+                            <Label Text="#" TextColor="White" WidthRequest="40"  XAlign="Center" />
+                            <Label Text="Name 1" TextColor="White" WidthRequest="540" />
+                            <Label Text="Name 2" TextColor="White" WidthRequest="140" />
+                            <Label Text="Name 3" TextColor="White" WidthRequest="140" />
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                -->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="{Binding IsSelected, Converter={StaticResource SelectionStatusToColorConverter}}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ToggleSelection}" CommandParameter="{Binding}" />
+                                    <!--<TapGestureRecognizer Command="{Binding ToggleSelection, Source={StaticResource ViewModel}}" CommandParameter="{Binding}" />-->
+                                </Grid.GestureRecognizers>
+                                <Image Grid.RowSpan="2" Source="{Binding IconUrl}"  />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding PageTitle, Source={StaticResource ViewModel}}" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Field2}" />
+                                <Label Grid.Row="0" Grid.Column="3" Text="{Binding Field3}" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Field4}" />
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Field5}" />
+                                <Label Grid.Row="1" Grid.Column="3" Text="{Binding Field6}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <ContentView Grid.Row="3" Padding="10">
+            <controls:TextButtonView Text="BACKWARD" AccentColor="{x:DynamicResource iCareBlueColor}" ActionCommand="{Binding GoBackwardCommand}"  />
+        </ContentView>
+    </Grid>
+</me:ViewBase>

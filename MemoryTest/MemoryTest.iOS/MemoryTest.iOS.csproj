@@ -106,6 +106,10 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MemoryTest.WPF\MemoryTest.Core.csproj">
+      <Project>{546bf476-b112-4023-a948-d6ee5f454b13}</Project>
+      <Name>MemoryTest.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MemoryTest\MemoryTest.csproj">
       <Name>MemoryTest</Name>
       <Project>{AC6DBD95-C6B9-466D-924D-5D35D056A82F}</Project>

@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MemoryTest.Model;
 
 namespace MemoryTest.Service
 {
-    class AppStateService : IAppStateService
+    public class AppStateService : IAppStateService
     {
         public IList<Model1> GetDataForVM(int size)
         {

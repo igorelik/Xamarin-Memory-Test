@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.Command;
 using MemoryTest.Model;
 using MemoryTest.Service;
 using GalaSoft.MvvmLight.Ioc;
+using Xamarin.Forms;
 
 namespace MemoryTest.ViewModel
 {
@@ -49,6 +50,13 @@ namespace MemoryTest.ViewModel
 			t.Wait();
 			Models = t.Result;
             SelectedModel = _appStateService.SelectedModel;
+            if (Device.OS == TargetPlatform.Android)
+            {
+                foreach (var model in Models)
+                {
+                    model.ImageUrl = model.ImageUrl.Replace("/", "/a");
+                }
+            }
         }
 
         private Model1 _selectedModel;

@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Views;
 using MemoryTest.Model;
-using Xamarin.Forms;
 
 namespace MemoryTest.Service
 {

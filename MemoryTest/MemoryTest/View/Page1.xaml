@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:MemoryTest.View.Controls;assembly=MemoryTest"
-             x:Class="MemoryTest.View.Page1">
+             x:Class="MemoryTest.View.Page1"
+  BackgroundColor="White">
   <ContentPage.Padding>
     <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
   </ContentPage.Padding>
@@ -12,12 +13,16 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Label Text="{Binding SelectedModel.Field1, StringFormat='Page one - {0}' }" FontSize="20" HorizontalOptions="CenterAndExpand" />
-        <controls:GCInfoView Grid.Row="1" />
+        <Label Text="{Binding SelectedModel.Field1, StringFormat='Page one - {0}' }" TextColor="Black" FontSize="20" HorizontalOptions="CenterAndExpand" />       
+        <Grid Grid.Row="1" >
+            <Label TextColor="Red" Text="AAAAAAAAAAAAAA" FontSize="30"></Label>
+            <ContentView BackgroundColor="Lime" Opacity="0.2" InputTransparent="True" />         
+        </Grid>
         <ContentView Grid.Row="2" Padding="10">
             <controls:TextButtonView Text="FORWARD" AccentColor="{x:DynamicResource iCareBlueColor}" ActionCommand="{Binding GoForwardCommand}"  />
         </ContentView>
     </Grid>
-
-
 </ContentPage>
+
+
+          <!--<controls:GCInfoView/>-->

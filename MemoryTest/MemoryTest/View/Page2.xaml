@@ -20,8 +20,10 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Text="{Binding SelectedModel.Field1, StringFormat='Page two - {0}' }" Grid.ColumnSpan="2" FontSize="20" HorizontalOptions="CenterAndExpand" />
+      <!--<Image Source="a11121.png" Grid.Row="1"  Grid.ColumnSpan="2" Grid.Column="0" />-->
+      <Image Source="BigImages/a11121.png" Grid.Row="1"  Grid.ColumnSpan="2" Grid.Column="0" HeightRequest="30" />
 
-<!--        <controls:GCInfoView Grid.Row="1"  Grid.ColumnSpan="2" Grid.Column="0" />-->
+      <!--        <controls:GCInfoView Grid.Row="1"  Grid.ColumnSpan="2" Grid.Column="0" />-->
 
 <!-- 		<controls1:GridView Grid.Row="2"  Grid.ColumnSpan="2" Grid.Column="0" 
               x:Name="MediaItemsGridView"

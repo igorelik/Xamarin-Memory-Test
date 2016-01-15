@@ -28,6 +28,7 @@ namespace MemoryTest.ViewModel
 			GoBackwardCommand = new RelayCommand (async () => {
 				Model1s = null;
 				await _appNavigationService.GoBack ();
+//				await _appNavigationService.GoBack (2);
 			});
             ToggleSelection = new RelayCommand<object>(OnRowSelected);
             PageTitle = "Page Three-0";

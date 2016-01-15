@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 using System.Diagnostics;
 
 namespace MemoryTest.Model
@@ -34,13 +28,13 @@ namespace MemoryTest.Model
             }
         }
 
-        public RelayCommand<object> ToggleSelection { get; private set; }
+   //     public RelayCommand<object> ToggleSelection { get; private set; }
 
-        public Model1()
-        {
-			RefCnounter++;
-            ToggleSelection = new RelayCommand<object>(OnRowSelected);
-        }
+   //     public Model1()
+   //     {
+			//RefCnounter++;
+   //         ToggleSelection = new RelayCommand<object>(OnRowSelected);
+   //     }
 
         private void OnRowSelected(object rowData)
         {

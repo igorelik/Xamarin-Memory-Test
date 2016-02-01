@@ -50,17 +50,43 @@
               </controls1:GridView.ItemTemplate>
             </controls1:GridView>-->
             <ListView ItemsSource="{Binding Models}" RowHeight="260" Grid.Row="2"  Grid.ColumnSpan="2" Grid.Column="0" >
-<ListView.ItemTemplate>
+              <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-		<Grid.RowDefinitions>
-	        <RowDefinition Height="*"></RowDefinition>
-	        <RowDefinition Height="Auto"></RowDefinition>
-		</Grid.RowDefinitions>
-		<Image x:Name="ImageView" Source="{Binding ImageUrl}" Aspect="AspectFill"  />
-		<Label Grid.Row="1" Text="{Binding ImgLabel}" TextColor="Lime" />
-	</Grid>
+                          <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="*" />
+                              <ColumnDefinition Width="*" />
+                              <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                              <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                              </Grid.RowDefinitions>
+                              <!--<controls1:FastImage x:Name="ImageView" ImageUrl="{Binding ImageUrl}" Aspect="AspectFill"  />-->
+                              <Image x:Name="ImageView" Source=" {Binding ImageUrl}" Aspect="AspectFill"  />
+                              <Label Grid.Row="1" Text="{Binding ImgLabel}" TextColor="Lime" />
+                            </Grid>
+                            <Grid Grid.Column="1">
+                              <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                              </Grid.RowDefinitions>
+                              <!--<controls1:FastImage x:Name="ImageView1" ImageUrl="{Binding ImageUrl}" Aspect="AspectFill"  />-->
+                              <Image x:Name="ImageView1" Source="{Binding ImageUrl}" Aspect="AspectFill"  />
+                              <Label Grid.Row="1" Text="{Binding ImgLabel}" TextColor="Lime" />
+                            </Grid>
+                            <Grid Grid.Column="2">
+                              <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                              </Grid.RowDefinitions>
+                              <!--<controls1:FastImage x:Name="ImageView2" ImageUrl="{Binding ImageUrl}" Aspect="AspectFill"  />-->
+                              <Image x:Name="ImageView2" Source=" {Binding ImageUrl}" Aspect="AspectFill"  />
+                              <Label Grid.Row="1" Text="{Binding ImgLabel}" TextColor="Lime" />
+                            </Grid>
+                          </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

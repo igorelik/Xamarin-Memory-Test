@@ -13,7 +13,10 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Label Text="{Binding SelectedModel.Field1, StringFormat='Page one - {0}' }" TextColor="Black" FontSize="20" HorizontalOptions="CenterAndExpand" />       
+      <StackLayout>
+        <Label Text="{Binding SelectedModel.Field1, StringFormat='Page one - {0}' }" TextColor="Black" FontSize="20" HorizontalOptions="CenterAndExpand" />
+        <!--<Image Source="ms-appdata:///local/11130.png" BackgroundColor="Lime" />-->
+      </StackLayout>
         <Grid Grid.Row="1" >
             <Label TextColor="Red" Text="AAAAAAAAAAAAAA" FontSize="30"></Label>
             <ContentView BackgroundColor="Lime" Opacity="0.2" InputTransparent="True" />         

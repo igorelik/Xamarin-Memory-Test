@@ -46,17 +46,27 @@ namespace MemoryTest.ViewModel
         public void OnAppearing()
         {
             PageTitle = "Page Two";
-			var t = _appStateService.GetDataForGridVMAsync(40);
-			t.Wait();
-			Models = t.Result;
-            SelectedModel = _appStateService.SelectedModel;
-            if (Device.OS == TargetPlatform.Android)
+            Task.Run(async () =>
             {
-                foreach (var model in Models)
+                Models = await _appStateService.GetDataForGridVMAsync(80);
+                SelectedModel = _appStateService.SelectedModel;
+                if (Device.OS == TargetPlatform.Android)
                 {
-                    model.ImageUrl = model.ImageUrl.Replace("/", "/a");
+                    foreach (var model in Models)
+                    {
+                        model.ImageUrl = model.ImageUrl.Replace("/", "/a");
+                    }
                 }
-            }
+                if (Device.OS == TargetPlatform.Windows)
+                {
+                    foreach (var model in Models)
+                    {
+                        model.ImageUrl = model.ImageUrl.Replace("BigImages/",
+                            @"C:\Users\igorgorelik\AppData\Local\Packages\8cc3cc35-3c9e-49dd-9b56-726442badb37_z5cwy852zd69t\LocalState\")
+                            .Replace(@"\", "/");
+                    }
+                }
+            });
         }
 
         private Model1 _selectedModel;
@@ -72,7 +82,7 @@ namespace MemoryTest.ViewModel
 
         public void OnDisappearing()
         {
-			SimpleIoc.Default.Unregister (this);
+			//SimpleIoc.Default.Unregister (this);
         }
 
         private string _pageTitle;

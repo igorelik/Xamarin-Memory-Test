@@ -6,15 +6,15 @@ namespace MemoryTest.Controls
 {
 	public interface IFastImageProvider
 	{
-		void SetImageUrl (string imageUrl);
-	}
+        void SetImageUrl(FastImage imageUrl);
+    }
 
 	public class FastImage : Image
 	{
 
 		public FastImage ()
 		{
-			Aspect = Aspect.AspectFit; 
+			//Aspect = Aspect.AspectFit; 
 			
 		}
 

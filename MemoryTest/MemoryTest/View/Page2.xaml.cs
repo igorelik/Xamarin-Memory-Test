@@ -16,21 +16,22 @@ namespace MemoryTest.View
             get { return ((ViewModelLocator)Application.Current.Resources["Locator"]).Page2VM; }
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            ViewModel.OnAppearing();
-        }
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    ViewModel.OnAppearing();
+        //}
 
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-            ViewModel.OnDisappearing();
-        }
+        //protected override void OnDisappearing()
+        //{
+        //    base.OnDisappearing();
+        //    ViewModel.OnDisappearing();
+        //}
         public Page2()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            ViewModel.OnAppearing();
             BindingContext = ViewModel;
         }
         ~Page2()

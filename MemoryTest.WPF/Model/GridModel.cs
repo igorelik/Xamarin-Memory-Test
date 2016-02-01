@@ -11,7 +11,7 @@ namespace MemoryTest
 
 		public static GridModel GenerateRandom()
 		{
-			var imageId = 11121 + Randomisator.Next () % 15;
+			var imageId = 11121 + Randomisator.Next () % 14;
 			var res = new GridModel
 			{
 				ImgLabel = Guid.NewGuid().ToString(),
